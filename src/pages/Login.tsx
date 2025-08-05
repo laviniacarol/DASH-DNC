@@ -1,6 +1,6 @@
 import { Box, Container } from '@mui/material'
 import { Grid } from '@mui/material'
-import { BannerImage } from '@/components'
+import { BannerImage, FormComponent } from '../components'
 
 
 function Login() {
@@ -19,6 +19,22 @@ function Login() {
         >
           <Container maxWidth="sm">
             <h1>LOGIN</h1>
+
+            <FormComponent 
+            input={[
+              { type: 'email', placeholder: 'Email'},
+              { type: 'password', placeholder: 'Senha'},
+            ]} 
+
+            button={[
+              { className: 'primary', type: 'submit', children: 'Login'},
+            ]}
+
+            message={{
+               msg: "Sucesso",
+               type: "success"
+            }}
+            />
           </Container>
         </Grid>
 
