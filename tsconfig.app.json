@@ -9,7 +9,7 @@
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types", "./src/type"],
     "paths": {
-      "@*": ["src/*"]
+      "@/*": ["src/*"]
     },
 
     /* Bundler mode */
