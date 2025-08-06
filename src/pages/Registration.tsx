@@ -44,7 +44,7 @@ function Registration() {
             xs={12}
             sm={6}
             sx={{
-              display: { xs: 'none', sm: 'block' },
+            display: { xs: 'none', sm: 'block' },
             }}
           >
             <BannerImage />
