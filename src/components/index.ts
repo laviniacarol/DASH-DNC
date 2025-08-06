@@ -1,4 +1,6 @@
 export { BannerImage } from './BannerImage'
+export * from './Logo'
+export { default as FormComponent} from './FormComponent'
 export * from './StyleButton'
 export * from './StyledInput'
-export { default as FormComponent} from './FormComponent'
+export * from './Typographies'
