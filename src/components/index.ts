@@ -1,5 +1,6 @@
 export { BannerImage } from './BannerImage'
 export * from './Logo'
+export { default as AvatarList } from './AvatarList'
 export { default as FormComponent} from './FormComponent'
 export { default as Header} from './Header'
 export * from './CardComponent'
