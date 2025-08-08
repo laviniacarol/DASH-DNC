@@ -1,4 +1,5 @@
 export { BannerImage } from './BannerImage'
+export { default as CustomTable } from './CustomTable'
 export * from './Logo'
 export { default as AvatarList } from './AvatarList'
 export { default as FormComponent} from './FormComponent'
