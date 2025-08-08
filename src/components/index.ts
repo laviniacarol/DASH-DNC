@@ -1,3 +1,4 @@
+export { default as CustomChart} from './CustomChart'
 export { BannerImage } from './BannerImage'
 export { default as CustomTable } from './CustomTable'
 export * from './Logo'
