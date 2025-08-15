@@ -1,15 +1,19 @@
 import { Box, Container, Grid } from '@mui/material'
 import { BannerImage, FormComponent, Logo, StyledH1, StyledP } from '../components'
-import { pxToRem } from '@/utils'
+import { pxToRem, jwtExpirationDateConverter } from '@/utils'
 import React, { ChangeEvent, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { jwtDecode } from 'jwt-decode'
+import Cookies from 'js-cookie'
 
 // hooks
 import { useFormValidation, usePost } from '@/hooks'
 
 // types
-import { MessageProps, LoginData, LoginPostData } from '@/types'
+import { DecodedJWT, MessageProps, LoginData, LoginPostData } from '@/types'
 
 function Login() {
+  const navigate = useNavigate()
   const inputs = [
     { type: 'email', placeholder: 'Email' },
     { type: 'password', placeholder: 'Senha' }
@@ -22,10 +26,7 @@ function Login() {
     if (!error) return { msg: '', type: 'success' }
     switch (error) {
       case 401:
-        return {
-          msg: 'Email e/ou senha inválidos',
-          type: 'error',
-        }
+        return { msg: 'Email e/ou senha inválidos', type: 'error' }
       default:
         return {
           msg: 'Não foi possível realizar a operação. Entre em contato com o suporte.',
@@ -42,11 +43,17 @@ function Login() {
     })
   }
 
-  useEffect(() => {
-    if (data?.jwt_token) {
-      console.log('DATA: ', data)
-    }
-  }, [data])
+ useEffect(() => {
+  if (data?.jwt_token) {
+    const decoded: DecodedJWT = jwtDecode<DecodedJWT>(data.jwt_token)
+    Cookies.set('Authorization', data.jwt_token, {
+      expires: jwtExpirationDateConverter(decoded.exp),
+      secure: true
+    })
+    navigate('/home')
+  }
+}, [data, navigate])
+
 
   return (
     <Box>
@@ -77,7 +84,7 @@ function Login() {
                 placeholder: input.placeholder,
                 value: formValues[index] || '',
                 onChange: (e: ChangeEvent<HTMLInputElement>) =>
-                  handleChange(index, (e.target as HTMLInputElement).value)
+                  handleChange(index, e.target.value)
               }))}
               button={[
                 {
