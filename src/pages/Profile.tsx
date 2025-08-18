@@ -32,7 +32,7 @@ function Profile() {
         className="primary mb-1" 
         onClick={themeContext?.toggleTheme}>
           Trocar para tema 
-          {themeContext?.appTheme === 'light' ? 'escuro' : 'claro'}
+          {themeContext?.appTheme === 'light' ? ' escuro' : 'claro'}
         </StyledButton>
 
         <StyledButton className="alert" onClick={logout}>
