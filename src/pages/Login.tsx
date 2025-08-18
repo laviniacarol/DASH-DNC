@@ -46,10 +46,9 @@ function Login() {
  useEffect(() => {
   if (data?.jwt_token) {
     const decoded: DecodedJWT = jwtDecode<DecodedJWT>(data.jwt_token)
-    Cookies.set('Authorization', data.jwt_token, {
-      expires: jwtExpirationDateConverter(decoded.exp),
-      secure: true
-    })
+  Cookies.set('Authorization', data.jwt_token, {
+  expires: jwtExpirationDateConverter(decoded.exp)
+})
     navigate('/home')
   }
 }, [data, navigate])
