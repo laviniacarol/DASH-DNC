@@ -1,5 +1,6 @@
-import { useContext, ChangeEvent, useEffect } from "react";
+import { useContext, ChangeEvent, useEffect, useState } from "react";
 import { AppThemeContext } from "@/contexts/AppThemeContext";
+
 
 // COMPONENTS
 import { Container, Grid } from "@mui/material";
@@ -12,29 +13,63 @@ import {
 } from "@/components";
 
 // HOOK
-import { useFormValidation, useGet } from "@/hooks";
+import { useFormValidation, useGet, usePut, useDelete } from "@/hooks";
 
 // SERVICES
 import { logout } from "@/services";
 
 // TYPES
-import { InputProps, ProfileData } from "@/types"; // removi os que não estavam sendo usados
+import {
+  InputProps,
+  ProfileData,
+  MessageProps,
+  ProfileEditableData,
+} from "@/types"; // removi os que não estavam sendo usados
+import Cookies from "js-cookie";
 
 function Profile() {
   const themeContext = useContext(AppThemeContext);
 
   // HOOKS
+  const [upadateMessage, setUpdateMessage] = useState<MessageProps>({
+    type: "success",
+    msg: "",
+  });
+
+  const clearMessage = () => {
+    setTimeout(() => {
+      setUpdateMessage({
+        type: "success",
+        msg: "",
+      });
+    }, 3000);
+  };
+
   const {
     data: profileData,
     loading: profileLoading,
     error: profileError,
   } = useGet<ProfileData[]>("profile");
 
+  const {
+    data: profileUpdateData,
+    putData: profilePutData,
+    loading: profileUpdateLoading,
+    error: profileUpdateError,
+  } = usePut<ProfileEditableData>("profile/update");
+
+  const {
+    deleteData: profileDeleteData,
+    loading: profileDeleteLoading,
+  } = useDelete("profile/update");
+
+
+
   useEffect(() => {
-    if (profileData) {
-      handleChange(0, profileData.name);
-      handleChange(1, profileData.email);
-      handleChange(2, profileData.phone);
+    if (profileData && profileData.length > 0) {
+      handleChange(0, profileData[0].name);
+      handleChange(1, profileData[0].email);
+      handleChange(2, profileData[0].phone);
     }
   }, [profileData]);
 
@@ -49,12 +84,40 @@ function Profile() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Atualizar perfil:", formValues);
+    await profilePutData({
+      name: String(formValues[0]),
+      phone: String(formValues[2]),
+    });
   };
 
   const handleDelete = async () => {
     confirm("Tem certeza que deseja excluir sua conta?");
+    if(confirm('Tem certeza que deseja excluir sua conta?')) {
+     try {
+      await profileDeleteData();
+      alert('Conta excluída com sucesso.');
+      Cookies.remove('Authorization');
+      window.location.href = '/';
+     } catch (e) {
+      alert('Não foi possível excluir a conta, entre em contato com o suporte.');
+     }
+    }
   };
+
+  useEffect(() => {
+    if (profileUpdateData !== null) {
+      setUpdateMessage({
+        msg: "Perfil atualizado com sucesso!",
+        type: "success",
+      });
+    } else if (profileUpdateError) {
+      setUpdateMessage({
+        msg: "Não foi possível realizar a operação, entre em contato com o suporte",
+        type: "error",
+      });
+    }
+    clearMessage();
+  }, [profileUpdateData, profileUpdateError]);
 
   return (
     <>
@@ -64,36 +127,48 @@ function Profile() {
         <Grid container spacing={4}>
           {/* FORMULÁRIO DE PERFIL */}
           <Grid item xs={12} sm={6}>
-            <CardComponent>
-              <StyledH2 className="mb-1" color="inherit">
-                Seus Dados
-              </StyledH2>
-              <FormComponent
-                input={inputs.map((input, index) => ({
-                  ...input,
-                  type: input.type,
-                  placeholder: input.placeholder,
-                  value: formValues[index] || "",
-                  onChange: (e: ChangeEvent<HTMLInputElement>) =>
-                    handleChange(index, e.target.value),
-                }))}
-                button={[
-                  {
-                    className: "primary",
-                    disabled: !formValid,
-                    type: "submit",
-                    onClick: handleSubmit,
-                    children: "Atualizar meu perfil",
-                  },
-                  {
-                    className: "alert",
-                    type: "button",
-                    onClick: handleDelete,
-                    children: "Excluir minha conta",
-                  },
-                ]}
-              />
-            </CardComponent>
+            {!profileError && (
+              <CardComponent
+                className={
+                  profileLoading ? "skeleton-loading skeleton-loading-mh-2" : ""
+                }
+              >
+                {!profileLoading && profileData && (
+                  <>
+                    <StyledH2 className="mb-1" color="inherit">
+                      Seus Dados
+                    </StyledH2>
+                    <FormComponent
+                      input={inputs.map((input, index) => ({
+                        ...input,
+                        type: input.type,
+                        placeholder: input.placeholder,
+                        value: formValues[index] || "",
+                        onChange: (e: ChangeEvent<HTMLInputElement>) =>
+                          handleChange(index, e.target.value),
+                      }))}
+                      button={[
+                        {
+                          className: "primary",
+                          disabled: !formValid || profileUpdateLoading,
+                          type: "submit",
+                          onClick: handleSubmit,
+                          children: profileUpdateLoading ? 'Aguarde' : 'Atualizar meu perfil',
+                        },
+                        {
+                          className: "alert",
+                          disabled: profileLoading,
+                          type: "button",
+                          onClick: handleDelete,
+                          children: profileLoading ? 'Aguarde' : 'Excluir minha conta',
+                        },
+                      ]}
+                      message={upadateMessage}
+                    />
+                  </>
+                )}
+              </CardComponent>
+            )}
           </Grid>
 
           {/* CONFIGURAÇÕES */}
@@ -122,3 +197,7 @@ function Profile() {
 }
 
 export default Profile;
+function deleteProfile() {
+  throw new Error("Function not implemented.");
+}
+
