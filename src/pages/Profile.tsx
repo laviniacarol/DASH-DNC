@@ -56,7 +56,7 @@ function Profile() {
     putData: profilePutData,
     loading: profileUpdateLoading,
     error: profileUpdateError,
-  } = usePut<ProfileEditableData>("profile/update");
+  } = usePut<ProfileEditableData>('profile/update', true)
 
   const {
     deleteData: profileDeleteData,
