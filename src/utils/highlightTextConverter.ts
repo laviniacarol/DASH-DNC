@@ -15,6 +15,6 @@ export function highlightTextConverter (text: string): string {
         case 'warning':
             return '*Falta pouco, vamos lá!'
             default:
-                return '*Sem dados no momentos'
+                return '*Sem dados no momento'
     }
 }

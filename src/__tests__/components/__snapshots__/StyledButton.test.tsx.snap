@@ -1,0 +1,483 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`StyledButton Dark Theme it should match the spnapshot with alert class 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-radius: 0.5rem;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 3.125rem;
+  padding: 0 1rem;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.c0.primary {
+  background-color: #0070f3;
+  color: #FFF;
+}
+
+.c0.primary:hover {
+  background-color: #0059c1;
+}
+
+.c0.alert {
+  background-color: #E00;
+  color: #FFF;
+}
+
+.c0.alert:hover {
+  background-color: #C00;
+}
+
+.c0.borderless-alert {
+  background-color: none;
+  color: #E00;
+  padding: 0;
+  height: 0;
+}
+
+.c0.borderless-alert:hover {
+  color: #C00;
+}
+
+.c0:disabled {
+  background-color: #CCC;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.c0:disabled:hover {
+  color: #CCC;
+}
+
+<button
+    class="c0 alert"
+  />
+</DocumentFragment>
+`;
+
+exports[`StyledButton Dark Theme it should match the spnapshot with borderless alert class 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-radius: 0.5rem;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 3.125rem;
+  padding: 0 1rem;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.c0.primary {
+  background-color: #0070f3;
+  color: #FFF;
+}
+
+.c0.primary:hover {
+  background-color: #0059c1;
+}
+
+.c0.alert {
+  background-color: #E00;
+  color: #FFF;
+}
+
+.c0.alert:hover {
+  background-color: #C00;
+}
+
+.c0.borderless-alert {
+  background-color: none;
+  color: #E00;
+  padding: 0;
+  height: 0;
+}
+
+.c0.borderless-alert:hover {
+  color: #C00;
+}
+
+.c0:disabled {
+  background-color: #CCC;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.c0:disabled:hover {
+  color: #CCC;
+}
+
+<button
+    class="c0 borderless-alert"
+  />
+</DocumentFragment>
+`;
+
+exports[`StyledButton Dark Theme it should match the spnapshot with disabled class 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-radius: 0.5rem;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 3.125rem;
+  padding: 0 1rem;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.c0.primary {
+  background-color: #0070f3;
+  color: #FFF;
+}
+
+.c0.primary:hover {
+  background-color: #0059c1;
+}
+
+.c0.alert {
+  background-color: #E00;
+  color: #FFF;
+}
+
+.c0.alert:hover {
+  background-color: #C00;
+}
+
+.c0.borderless-alert {
+  background-color: none;
+  color: #E00;
+  padding: 0;
+  height: 0;
+}
+
+.c0.borderless-alert:hover {
+  color: #C00;
+}
+
+.c0:disabled {
+  background-color: #CCC;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.c0:disabled:hover {
+  color: #CCC;
+}
+
+<button
+    class="c0 primary"
+    disabled=""
+  />
+</DocumentFragment>
+`;
+
+exports[`StyledButton Dark Theme it should match the spnapshot with primary class 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-radius: 0.5rem;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 3.125rem;
+  padding: 0 1rem;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.c0.primary {
+  background-color: #0070f3;
+  color: #FFF;
+}
+
+.c0.primary:hover {
+  background-color: #0059c1;
+}
+
+.c0.alert {
+  background-color: #E00;
+  color: #FFF;
+}
+
+.c0.alert:hover {
+  background-color: #C00;
+}
+
+.c0.borderless-alert {
+  background-color: none;
+  color: #E00;
+  padding: 0;
+  height: 0;
+}
+
+.c0.borderless-alert:hover {
+  color: #C00;
+}
+
+.c0:disabled {
+  background-color: #CCC;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.c0:disabled:hover {
+  color: #CCC;
+}
+
+<button
+    class="c0 primary"
+  />
+</DocumentFragment>
+`;
+
+exports[`StyledButton Light Theme it should match the spnapshot with alert class 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-radius: 0.5rem;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 3.125rem;
+  padding: 0 1rem;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.c0.primary {
+  background-color: #0070f3;
+  color: #FFF;
+}
+
+.c0.primary:hover {
+  background-color: #0059c1;
+}
+
+.c0.alert {
+  background-color: #E00;
+  color: #FFF;
+}
+
+.c0.alert:hover {
+  background-color: #C00;
+}
+
+.c0.borderless-alert {
+  background-color: none;
+  color: #E00;
+  padding: 0;
+  height: 0;
+}
+
+.c0.borderless-alert:hover {
+  color: #C00;
+}
+
+.c0:disabled {
+  background-color: #CCC;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.c0:disabled:hover {
+  color: #CCC;
+}
+
+<button
+    class="c0 alert"
+  />
+</DocumentFragment>
+`;
+
+exports[`StyledButton Light Theme it should match the spnapshot with borderless alert class 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-radius: 0.5rem;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 3.125rem;
+  padding: 0 1rem;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.c0.primary {
+  background-color: #0070f3;
+  color: #FFF;
+}
+
+.c0.primary:hover {
+  background-color: #0059c1;
+}
+
+.c0.alert {
+  background-color: #E00;
+  color: #FFF;
+}
+
+.c0.alert:hover {
+  background-color: #C00;
+}
+
+.c0.borderless-alert {
+  background-color: none;
+  color: #E00;
+  padding: 0;
+  height: 0;
+}
+
+.c0.borderless-alert:hover {
+  color: #C00;
+}
+
+.c0:disabled {
+  background-color: #CCC;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.c0:disabled:hover {
+  color: #CCC;
+}
+
+<button
+    class="c0 borderless-alert"
+  />
+</DocumentFragment>
+`;
+
+exports[`StyledButton Light Theme it should match the spnapshot with disabled class 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-radius: 0.5rem;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 3.125rem;
+  padding: 0 1rem;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.c0.primary {
+  background-color: #0070f3;
+  color: #FFF;
+}
+
+.c0.primary:hover {
+  background-color: #0059c1;
+}
+
+.c0.alert {
+  background-color: #E00;
+  color: #FFF;
+}
+
+.c0.alert:hover {
+  background-color: #C00;
+}
+
+.c0.borderless-alert {
+  background-color: none;
+  color: #E00;
+  padding: 0;
+  height: 0;
+}
+
+.c0.borderless-alert:hover {
+  color: #C00;
+}
+
+.c0:disabled {
+  background-color: #CCC;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.c0:disabled:hover {
+  color: #CCC;
+}
+
+<button
+    class="c0 primary"
+    disabled=""
+  />
+</DocumentFragment>
+`;
+
+exports[`StyledButton Light Theme it should match the spnapshot with primary class 1`] = `
+<DocumentFragment>
+  .c0 {
+  border-radius: 0.5rem;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 3.125rem;
+  padding: 0 1rem;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.c0.primary {
+  background-color: #0070f3;
+  color: #FFF;
+}
+
+.c0.primary:hover {
+  background-color: #0059c1;
+}
+
+.c0.alert {
+  background-color: #E00;
+  color: #FFF;
+}
+
+.c0.alert:hover {
+  background-color: #C00;
+}
+
+.c0.borderless-alert {
+  background-color: none;
+  color: #E00;
+  padding: 0;
+  height: 0;
+}
+
+.c0.borderless-alert:hover {
+  color: #C00;
+}
+
+.c0:disabled {
+  background-color: #CCC;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.c0:disabled:hover {
+  color: #CCC;
+}
+
+<button
+    class="c0 primary"
+  />
+</DocumentFragment>
+`;
